@@ -74,7 +74,7 @@ $('.calendar-switcher').on('click', 'a', function(e){
 
     var oldIndex = $this.addClass('active').siblings('.active').removeClass('active').data('index');
 
-    $this.parent().next().removeClass('active' + oldIndex).addClass('active' + newIndex).find('ul:nth-child(2) li:first a').trigger('click');
+    $this.parent().next().removeClass('active' + oldIndex).addClass('active' + newIndex).find('ul:nth-child(' + newIndex + ') li:first a').trigger('click');
 
     map.setView([nav[0], nav[1]], nav[2]);
 });
