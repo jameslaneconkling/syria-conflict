@@ -63,3 +63,18 @@ $('.calendar').on('click', 'a', function(e){
     //     map.addLayer(layer);
     // }
 });
+
+$('.calendar-switcher').on('click', 'a', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+
+    var $this = $(this),
+        newIndex = $this.data('index'),
+        nav = $this.data('nav');
+
+    var oldIndex = $this.addClass('active').siblings('.active').removeClass('active').data('index');
+
+    $this.parent().next().removeClass('active' + oldIndex).addClass('active' + newIndex).find('ul:nth-child(2) li:first a').trigger('click');
+
+    map.setView([nav[0], nav[1]], nav[2]);
+});
