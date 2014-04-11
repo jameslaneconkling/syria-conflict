@@ -11,14 +11,17 @@ var map = L.mapbox.map('map', 'helsinki.hnhinfii', {
 })
     .setView([34.5, 37.5], 8);
 
-map.addControl(L.mapbox.shareControl().setPosition('topright'));
-map.zoomControl.setPosition('topright');
+map.addControl(L.mapbox.shareControl().setPosition('topleft'));
+map.zoomControl.setPosition('topleft');
+
+// map.legendControl.addLegend(document.getElementById('legend-container').innerHTML);
+// map.legendControl.addLegend($('.legend-container').html());
 
 
 // Add custom legend
-// var mapLegend = L.mapbox.legendControl({ position:'bottomright' }).addLegend(
-//     document.getElementById('legend-content').innerHTML);
-// map.addControl(mapLegend);
+var mapLegend = L.mapbox.legendControl({ position:'topright' }).addLegend(
+    $('.legend-container').html());
+map.addControl(mapLegend);
 
 $('.arrow').on('click', function(e){
     e.preventDefault();
